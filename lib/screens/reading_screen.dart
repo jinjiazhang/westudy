@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import '../models/story_model.dart';
 import '../models/character_info_model.dart';
 import '../data/sample_data.dart'; // 引入示例生字数据
@@ -8,13 +9,13 @@ import '../widgets/word_info_dialog.dart'; // 引入弹窗
 class ReadingScreen extends StatefulWidget {
   final Story story;
 
-  ReadingScreen({required this.story});
+  const ReadingScreen({super.key, required this.story});
 
   @override
-  _ReadingScreenState createState() => _ReadingScreenState();
+  ReadingScreenState createState() => ReadingScreenState();
 }
 
-class _ReadingScreenState extends State<ReadingScreen> {
+class ReadingScreenState extends State<ReadingScreen> {
   late PageController _pageController;
   int _currentPage = 0;
 
@@ -43,19 +44,20 @@ class _ReadingScreenState extends State<ReadingScreen> {
             fontSize: 30, // 调整字体大小
             color: Colors.white, // 文字颜色，确保在背景上可见
             shadows: [ // 给文字加点描边，使其在复杂背景下更清晰
-              Shadow(offset: Offset(1.0, 1.0), blurRadius: 2.0, color: Colors.black.withOpacity(0.7)),
-              Shadow(offset: Offset(-1.0, -1.0), blurRadius: 2.0, color: Colors.black.withOpacity(0.7)),
-              Shadow(offset: Offset(1.0, -1.0), blurRadius: 2.0, color: Colors.black.withOpacity(0.7)),
-              Shadow(offset: Offset(-1.0, 1.0), blurRadius: 2.0, color: Colors.black.withOpacity(0.7)),
+              Shadow(offset: Offset(1.0, 1.0), blurRadius: 2.0, color: Color.fromRGBO(0, 0, 0, 0.7)),
+              Shadow(offset: Offset(-1.0, -1.0), blurRadius: 2.0, color: Color.fromRGBO(0, 0, 0, 0.7)),
+              Shadow(offset: Offset(1.0, -1.0), blurRadius: 2.0, color: Color.fromRGBO(0, 0, 0, 0.7)),
+              Shadow(offset: Offset(-1.0, 1.0), blurRadius: 2.0, color: Color.fromRGBO(0, 0, 0, 0.7)),
             ]
           ),
           recognizer: TapGestureRecognizer()
             ..onTap = () {
+              var logger = Logger();
               if (charInfo != null) {
-                print("Tapped on: ${charInfo.character}");
+                logger.d("Tapped on: ${charInfo.character}");
                 showWordInfoDialog(context, charInfo);
               } else {
-                print("No info for: $char");
+                logger.w("No info for: $char");
                 // 可以选择性地给用户一个提示，比如 "暂无该字信息"
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('“$char”：暂无该字详细信息'), duration: Duration(seconds: 1),)
@@ -73,7 +75,7 @@ class _ReadingScreenState extends State<ReadingScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.story.title),
-        backgroundColor: Colors.black.withOpacity(0.5), // 半透明 AppBar
+        backgroundColor: Color.fromRGBO(0, 0, 0, 0.5), // 半透明 AppBar
       ),
       body: Stack(
         children: [
