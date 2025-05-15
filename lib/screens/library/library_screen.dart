@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../data/local/sample_story.dart';
-import 'story_screen.dart';
+import '../library/story_screen.dart';
 
-class ReadingScreen extends StatelessWidget {
-  const ReadingScreen({super.key});
+class LibraryScreen extends StatelessWidget {
+  const LibraryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

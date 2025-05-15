@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-// 正方形页面
 import '../square/square_screen.dart';
-// 阅读页面
-import '../reading/reading_screen.dart';
-// 测验页面
+import '../library/library_screen.dart';
 import '../quiz/quiz_screen.dart';
-// 个人中心页面
 import '../profile/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   // 页面列表
   final List<Widget> _pages = [
     const SquareScreen(),
-    const ReadingScreen(),
+    const LibraryScreen(),
     const QuizScreen(),
     const ProfileScreen(),
   ];
@@ -35,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
     const BottomNavigationBarItem(
       icon: Icon(Icons.book),
-      label: '阅读',
+      label: '书架',
     ),
     const BottomNavigationBarItem(
       icon: Icon(Icons.quiz),
