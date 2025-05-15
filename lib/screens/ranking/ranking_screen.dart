@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class QuizScreen extends StatelessWidget {
-  const QuizScreen({super.key});
+class RankingScreen extends StatelessWidget {
+  const RankingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class QuizScreen extends StatelessWidget {
           Icon(Icons.quiz, size: 80, color: Theme.of(context).primaryColor),
           SizedBox(height: 16),
           Text(
-            '测验页面',
+            '榜单',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 8),

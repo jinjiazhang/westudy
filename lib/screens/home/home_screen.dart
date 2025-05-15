@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../square/square_screen.dart';
 import '../library/library_screen.dart';
-import '../quiz/quiz_screen.dart';
+import '../ranking/ranking_screen.dart';
 import '../profile/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _pages = [
     const SquareScreen(),
     const LibraryScreen(),
-    const QuizScreen(),
+    const RankingScreen(),
     const ProfileScreen(),
   ];
   
@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
     const BottomNavigationBarItem(
       icon: Icon(Icons.quiz),
-      label: '测验',
+      label: '榜单',
     ),
     const BottomNavigationBarItem(
       icon: Icon(Icons.person),
