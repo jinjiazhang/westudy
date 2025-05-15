@@ -7,7 +7,7 @@ import '../../models/story_model.dart';
 import '../../data/local/sample_data.dart';
 // 引入内容屏幕
 // 导入内容阅读页面
-import 'content_screen.dart';
+import 'story_screen.dart';
 
 class ReadingScreen extends StatelessWidget {
   const ReadingScreen({super.key});
@@ -50,7 +50,7 @@ class ReadingScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ContentScreen(story: story),
+                            builder: (context) => StoryScreen(story: story),
                           ),
                         );
                       },
