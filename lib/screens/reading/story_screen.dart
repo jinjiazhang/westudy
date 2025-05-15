@@ -102,26 +102,50 @@ class StoryScreenState extends State<StoryScreen> {
             child: Image.asset(widget.story.background, fit: BoxFit.cover),
           ),
           // 翻页视图
-          PageView.builder(
-            controller: _pageController,
-            itemCount: widget.story.pages.length,
-            onPageChanged: (index) {
-              setState(() {
-                _currentPage = index;
-              });
-            },
-            itemBuilder: (context, index) {
-              final page = widget.story.pages[index];
-              return Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(30.0), // 增加内边距
-                  child: RichText(
-                    text: TextSpan(children: _buildTextSpans(page.content)),
-                    textAlign: TextAlign.center, // 居中显示
-                  ),
-                ),
+          GestureDetector(
+            onHorizontalDragUpdate: (details) {
+              _pageController.jumpTo(
+                _pageController.position.pixels - details.delta.dx,
               );
             },
+            onHorizontalDragEnd: (details) {
+              if (details.primaryVelocity != null) {
+                if (details.primaryVelocity! > 0) {
+                  _pageController.previousPage(
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.ease,
+                  );
+                } else {
+                  _pageController.nextPage(
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.ease,
+                  );
+                }
+              }
+            },
+            child: PageView.builder(
+              controller: _pageController,
+              itemCount: widget.story.pages.length,
+              physics: const NeverScrollableScrollPhysics(), // 禁用默认滑动
+              scrollDirection: Axis.horizontal,
+              onPageChanged: (index) {
+                setState(() {
+                  _currentPage = index;
+                });
+              },
+              itemBuilder: (context, index) {
+                final page = widget.story.pages[index];
+                return Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 100.0), // 调整底部内边距，确保内容与页码之间有足够的空间
+                    child: RichText(
+                      text: TextSpan(children: _buildTextSpans(page.content)),
+                      textAlign: TextAlign.center, // 居中显示
+                    ),
+                  ),
+                );
+              }),
           ),
           // 简单的翻页提示 (可选)
           if (widget.story.pages.length > 1)

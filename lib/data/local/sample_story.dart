@@ -2,7 +2,7 @@ import '../../../models/story_model.dart';
 
 final List<Story> sampleStories = [
   Story(
-    title: '鲁滨逊漂流记 (节选)',
+    title: '鲁滨逊漂流记',
     author: '丹尼尔·笛福',
     cover: 'assets/images/robinson_crusoe.png',
     background: 'assets/images/robinson_crusoe.png',
