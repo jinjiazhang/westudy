@@ -1,38 +1,69 @@
 import 'package:flutter/material.dart';
-import '../data/sample_data.dart';
+import 'square_screen.dart';
 import 'reading_screen.dart';
+import 'quiz_screen.dart';
+import 'profile_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  // 当前选中的页面索引
+  int _selectedIndex = 1; // 默认选中"阅读"页签
+  
+  // 页面列表
+  final List<Widget> _pages = [
+    const SquareScreen(),
+    const ReadingScreen(),
+    const QuizScreen(),
+    const ProfileScreen(),
+  ];
+  
+  // 底部导航项
+  final List<BottomNavigationBarItem> _navItems = [
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.public),
+      label: '广场',
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.book),
+      label: '阅读',
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.quiz),
+      label: '测验',
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.person),
+      label: '我的',
+    ),
+  ];
+
+  // 切换页面
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('WeStudy 阅读'),
-      ),
-      body: ListView.builder(
-        itemCount: sampleStories.length,
-        itemBuilder: (context, index) {
-          final story = sampleStories[index];
-          return Card(
-            margin: EdgeInsets.all(10),
-            child: ListTile(
-              leading: Icon(Icons.book, size: 40, color: Theme.of(context).primaryColor),
-              title: Text(story.title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              subtitle: Text(story.author),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ReadingScreen(story: story),
-                  ),
-                );
-              },
-            ),
-          );
-        },
+      // 显示当前选中的页面
+      body: _pages[_selectedIndex],
+      
+      // 底部导航栏
+      bottomNavigationBar: BottomNavigationBar(
+        items: _navItems,
+        currentIndex: _selectedIndex,
+        selectedItemColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Colors.grey,
+        type: BottomNavigationBarType.fixed, // 固定样式，不会随着选中而变化
+        onTap: _onItemTapped,
       ),
     );
   }
