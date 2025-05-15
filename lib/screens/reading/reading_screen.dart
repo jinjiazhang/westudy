@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../data/local/sample_data.dart';
+import '../../data/local/sample_story.dart';
 import 'story_screen.dart';
 
 class ReadingScreen extends StatelessWidget {
@@ -27,7 +27,7 @@ class ReadingScreen extends StatelessWidget {
                 final double screenWidth = constraints.maxWidth;
                 final int booksPerRow = (screenWidth / 170).floor();
                 final int crossAxisCount = booksPerRow > 0 ? booksPerRow : 1;
-                
+
                 return GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: crossAxisCount, // 根据屏幕宽度动态计算
@@ -69,10 +69,7 @@ class ReadingScreen extends StatelessWidget {
                                   fit: StackFit.expand,
                                   children: [
                                     // 使用故事背景图作为封面
-                                    Image.asset(
-                                      story.cover,
-                                      fit: BoxFit.cover,
-                                    ),
+                                    Image.asset(story.cover, fit: BoxFit.cover),
                                     // 添加一个半透明的遮罩，使文字更易读
                                     Container(
                                       decoration: BoxDecoration(
@@ -119,7 +116,10 @@ class ReadingScreen extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 8.0, left: 4.0),
                             child: Text(
                               story.author,
-                              style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey[700],
+                              ),
                             ),
                           ),
                         ],
