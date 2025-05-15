@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
+// 应用入口，导入主页
+import 'screens/home/home_screen.dart';
 
 void main() {
   runApp(WeStudyApp());
@@ -13,10 +14,10 @@ class WeStudyApp extends StatelessWidget {
     return MaterialApp(
       title: 'WeStudy',
       theme: ThemeData(
-        primarySwatch: Colors.blue, // 你可以自定义主题颜色
+        primarySwatch: Colors.blue, // 主题色可根据需要自定义
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      home: HomeScreen(), // 主页
       debugShowCheckedModeBanner: false, // 去掉右上角的Debug标签
     );
   }

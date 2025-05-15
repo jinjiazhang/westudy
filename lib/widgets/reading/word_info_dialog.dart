@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/character_info_model.dart';
+// 导入角色信息数据模型
+import '../../models/character_info_model.dart';
 
 void showWordInfoDialog(BuildContext context, CharacterInfo charInfo) {
   showDialog(

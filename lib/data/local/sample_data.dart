@@ -1,5 +1,7 @@
-import '../models/character_info_model.dart';
-import '../models/story_model.dart';
+// 导入角色信息数据模型
+import '../../../models/character_info_model.dart';
+// 导入故事数据模型
+import '../../../models/story_model.dart';
 
 // 示例生字数据
 // 在实际应用中，这部分数据可能非常庞大，需要从数据库或API获取

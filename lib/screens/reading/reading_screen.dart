@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
-import '../data/sample_data.dart';
+// 引入故事数据模型
+// 导入故事数据模型
+// 导入故事数据模型
+import '../../models/story_model.dart';
+// 导入示例故事数据
+import '../../data/local/sample_data.dart';
+// 引入内容屏幕
+// 导入内容阅读页面
 import 'content_screen.dart';
 
 class ReadingScreen extends StatelessWidget {

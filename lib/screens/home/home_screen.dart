@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'square_screen.dart';
-import 'reading_screen.dart';
-import 'quiz_screen.dart';
-import 'profile_screen.dart';
+// 正方形页面
+import '../square/square_screen.dart';
+// 阅读页面
+import '../reading/reading_screen.dart';
+// 测验页面
+import '../quiz/quiz_screen.dart';
+// 个人中心页面
+import '../profile/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

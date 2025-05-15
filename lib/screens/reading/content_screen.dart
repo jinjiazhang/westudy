@@ -1,10 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import '../models/story_model.dart';
-import '../models/character_info_model.dart';
-import '../data/sample_data.dart'; // 引入示例生字数据
-import '../widgets/word_info_dialog.dart'; // 引入弹窗
+// 导入故事数据模型
+import '../../models/story_model.dart';
+// 导入角色信息数据模型
+import '../../models/character_info_model.dart';
+// 引入示例生字数据
+import '../../data/local/sample_data.dart';
+// 引入弹窗
+import '../../widgets/reading/word_info_dialog.dart';
 
 class ContentScreen extends StatefulWidget {
   final Story story;
