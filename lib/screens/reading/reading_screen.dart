@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-// 引入故事数据模型
-// 导入故事数据模型
-// 导入故事数据模型
-import '../../models/story_model.dart';
-// 导入示例故事数据
 import '../../data/local/sample_data.dart';
-// 引入内容屏幕
-// 导入内容阅读页面
 import 'story_screen.dart';
 
 class ReadingScreen extends StatelessWidget {
@@ -77,7 +70,7 @@ class ReadingScreen extends StatelessWidget {
                                   children: [
                                     // 使用故事背景图作为封面
                                     Image.asset(
-                                      story.backgroundImage,
+                                      story.cover,
                                       fit: BoxFit.cover,
                                     ),
                                     // 添加一个半透明的遮罩，使文字更易读

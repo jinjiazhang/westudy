@@ -8,7 +8,7 @@ void showWordInfoDialog(BuildContext context, WordInfoModel charInfo) {
     builder: (BuildContext context) {
       return AlertDialog(
         title: Text(
-          charInfo.character,
+          charInfo.word,
           style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
