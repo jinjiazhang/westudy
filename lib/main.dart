@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-// 应用入口，导入主页
-import 'screens/home/home_screen.dart';
+// 导入配置文件
+import 'config/routes.dart';
+import 'config/theme.dart';
+import 'constants/app_constants.dart';
 
 void main() {
-  runApp(WeStudyApp());
+  runApp(const WeStudyApp());
 }
 
 class WeStudyApp extends StatelessWidget {
@@ -12,19 +14,11 @@ class WeStudyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'WeStudy',
-      theme: ThemeData(
-        primarySwatch: Colors.blue, // 主题色可根据需要自定义
-        scaffoldBackgroundColor: Colors.white,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.white,
-        ),
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Colors.white,
-        ),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: HomeScreen(), // 主页
+      title: AppInfo.appName,
+      theme: AppTheme.lightTheme,
+      routes: AppRoutes.routes,
+      initialRoute: RouteNames.home,
+      onUnknownRoute: AppRoutes.onUnknownRoute,
       debugShowCheckedModeBanner: false, // 去掉右上角的Debug标签
     );
   }
