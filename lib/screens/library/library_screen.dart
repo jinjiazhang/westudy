@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../data/local/sample_story.dart';
-import '../library/story_screen.dart';
+import '../story/story_screen.dart';
 
 class LibraryScreen extends StatelessWidget {
   const LibraryScreen({super.key});

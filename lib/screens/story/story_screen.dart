@@ -1,3 +1,6 @@
+// story_screen.dart
+// 故事阅读页面，已从 library 目录迁移至 story 目录
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
